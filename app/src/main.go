@@ -11,7 +11,7 @@ import (
 // @title VeloScoutFitAPI Swagger API Documentation
 // @version 1.0
 // @description This is an API for decoding .fit files
-// @host localhost:8080
+// @host veloscout-henriqueguim0nrdln66m6.koyeb.app
 // @BasePath /
 func main() {
 	router := gin.Default()
