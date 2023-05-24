@@ -1,0 +1,78 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is an API for decoding .fit files",
+        "title": "VeloScoutFitAPI Swagger API Documentation",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/decode": {
+            "post": {
+                "description": "Decode a .fit file",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Decode a .fit file",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "File to decode",
+                        "name": "FitFile",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.DataFormat"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.DataFormat": {
+            "type": "object",
+            "properties": {
+                "average_cadence": {
+                    "type": "integer"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "distance": {
+                    "type": "number"
+                },
+                "duration": {
+                    "type": "integer"
+                },
+                "elevation_gain": {
+                    "type": "integer"
+                },
+                "heart_rate": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "integer"
+                    }
+                },
+                "i_f": {
+                    "type": "number"
+                },
+                "power": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "integer"
+                    }
+                },
+                "t_ss": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

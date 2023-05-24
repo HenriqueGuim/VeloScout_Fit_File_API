@@ -1,0 +1,51 @@
+basePath: /
+definitions:
+  models.DataFormat:
+    properties:
+      average_cadence:
+        type: integer
+      date:
+        type: string
+      distance:
+        type: number
+      duration:
+        type: integer
+      elevation_gain:
+        type: integer
+      heart_rate:
+        additionalProperties:
+          type: integer
+        type: object
+      i_f:
+        type: number
+      power:
+        additionalProperties:
+          type: integer
+        type: object
+      t_ss:
+        type: integer
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is an API for decoding .fit files
+  title: VeloScoutFitAPI Swagger API Documentation
+  version: "1.0"
+paths:
+  /decode:
+    post:
+      description: Decode a .fit file
+      parameters:
+      - description: File to decode
+        in: formData
+        name: FitFile
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.DataFormat'
+      summary: Decode a .fit file
+swagger: "2.0"

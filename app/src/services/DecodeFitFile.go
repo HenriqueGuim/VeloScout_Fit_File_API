@@ -23,8 +23,9 @@ func DecodeFitFile(context *gin.Context) {
 
 	fitObj, err := fit.Decode(file)
 	if err != nil {
-		context.JSON(400, gin.H{
-			"message": "Error decoding file",
+		context.JSON(500, gin.H{
+			"message":  "Error decoding file",
+			"message2": err.Error(),
 		})
 		return
 	}
@@ -37,9 +38,7 @@ func DecodeFitFile(context *gin.Context) {
 
 	data := getData(activity)
 
-	context.JSON(200, gin.H{
-		"data": data,
-	})
+	context.JSON(200, data)
 }
 
 func getData(activity *fit.ActivityFile) *models.DataFormat {

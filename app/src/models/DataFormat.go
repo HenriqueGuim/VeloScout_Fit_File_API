@@ -2,6 +2,9 @@ package models
 
 import "time"
 
+// DataFormat is a struct that contains the data that will be sent to the frontend
+// The json tags are used to make the json response more readable
+// The omitempty tag is used to not send empty values
 type DataFormat struct {
 	Date           time.Time
 	Duration       uint32            `json:"duration,omitempty"`

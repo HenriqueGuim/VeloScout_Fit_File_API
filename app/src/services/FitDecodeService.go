@@ -7,7 +7,6 @@ import (
 func GetBestHearthRateAverage(records []*fit.RecordMsg, time uint) uint8 {
 	var currSum uint = 0
 	var maxAverageHeartRate uint8 = 0
-	//var float64Time = float64(time)
 
 	if time > uint(len(records)) {
 		return 0
